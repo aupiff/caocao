@@ -7,13 +7,13 @@ import { hsk4 } from './wordlists/hsk4.js';
 import { hsk5 } from './wordlists/hsk5.js';
 import { hsk6 } from './wordlists/hsk6.js';
 
-function Card({ defaultValue , definition } : { defaultValue : string, definition :string }) {
+function Card({ defaultValue , definition , pinyin} : { defaultValue : string, definition :string , pinyin: string}) {
   const [value, setValue] = useState(defaultValue);
   const [showAnswer, setShowAnswer] = useState(false);
 
   function handleClick() {
     setShowAnswer(!showAnswer);
-    showAnswer ? setValue(defaultValue) : setValue(definition);
+    showAnswer ? setValue(defaultValue) : setValue(definition + " (" + pinyin + ")");
   }
 
   return (
@@ -29,22 +29,22 @@ function Card({ defaultValue , definition } : { defaultValue : string, definitio
 function App() {
   let cards: Array<JSX.Element> = [];
   hsk1.forEach(x =>
-      cards.push(<Card defaultValue={x.simplified} definition={x.definition}/>)
+      cards.push(<Card defaultValue={x.simplified} definition={x.definition} pinyin={x.pinyinAccent}/>)
   )
   hsk2.forEach(x =>
-      cards.push(<Card defaultValue={x.simplified} definition={x.definition}/>)
+      cards.push(<Card defaultValue={x.simplified} definition={x.definition} pinyin={x.pinyinAccent}/>)
   )
   hsk3.forEach(x =>
-      cards.push(<Card defaultValue={x.simplified} definition={x.definition}/>)
+      cards.push(<Card defaultValue={x.simplified} definition={x.definition} pinyin={x.pinyinAccent}/>)
   )
   hsk4.forEach(x =>
-      cards.push(<Card defaultValue={x.simplified} definition={x.definition}/>)
+      cards.push(<Card defaultValue={x.simplified} definition={x.definition} pinyin={x.pinyinAccent}/>)
   )
   hsk5.forEach(x =>
-      cards.push(<Card defaultValue={x.simplified} definition={x.definition}/>)
+      cards.push(<Card defaultValue={x.simplified} definition={x.definition} pinyin={x.pinyinAccent}/>)
   )
   hsk6.forEach(x =>
-      cards.push(<Card defaultValue={x.simplified} definition={x.definition}/>)
+      cards.push(<Card defaultValue={x.simplified} definition={x.definition} pinyin={x.pinyinAccent}/>)
   )
 
   return (
