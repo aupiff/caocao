@@ -39,4 +39,7 @@
 
 button {
   font-size: calc(10px + 2vmin);
+  flex-grow: 1;
 }
+
+#root > div {display:flex;flex-wrap:wrap}
