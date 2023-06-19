@@ -7,29 +7,9 @@ import { hsk4 } from './wordlists/hsk4.js';
 import { hsk5 } from './wordlists/hsk5.js';
 import { hsk6 } from './wordlists/hsk6.js';
 
-/*
-type Card = {
-  simplified: string;
-  traditional: string;
-  pinyin: string;
-  translation: string;
-}
-
-type Cards = {
-  cards: Card[]
-}
-
-let card = {
-  simplified: string;
-  traditional: string;
-  pinyin: string;
-  translation: string;
-}
-*/
-
 function Card({ defaultValue , definition } : { defaultValue : string, definition :string }) {
   const [value, setValue] = useState(defaultValue);
-  const [showAnswer, setShowAnswer] = useState(true);
+  const [showAnswer, setShowAnswer] = useState(false);
 
   function handleClick() {
     setShowAnswer(!showAnswer);
