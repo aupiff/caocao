@@ -28,25 +28,12 @@ function Card({ defaultValue , definition , pinyin} : { defaultValue : string, d
 
 function App() {
   let cards: Array<JSX.Element> = [];
-  hsk1.forEach(x =>
-      cards.push(<Card defaultValue={x.simplified} definition={x.definition} pinyin={x.pinyinAccent}/>)
+  let wordlists = [ hsk1, hsk2, hsk3, hsk4, hsk5, hsk6 ];
+  wordlists.forEach(y =>
+    y.forEach(x =>
+        cards.push(<Card defaultValue={x.simplified} definition={x.definition} pinyin={x.pinyinAccent}/>)
+    )
   )
-  hsk2.forEach(x =>
-      cards.push(<Card defaultValue={x.simplified} definition={x.definition} pinyin={x.pinyinAccent}/>)
-  )
-  hsk3.forEach(x =>
-      cards.push(<Card defaultValue={x.simplified} definition={x.definition} pinyin={x.pinyinAccent}/>)
-  )
-  hsk4.forEach(x =>
-      cards.push(<Card defaultValue={x.simplified} definition={x.definition} pinyin={x.pinyinAccent}/>)
-  )
-  hsk5.forEach(x =>
-      cards.push(<Card defaultValue={x.simplified} definition={x.definition} pinyin={x.pinyinAccent}/>)
-  )
-  hsk6.forEach(x =>
-      cards.push(<Card defaultValue={x.simplified} definition={x.definition} pinyin={x.pinyinAccent}/>)
-  )
-
   return (
     <div>
       {cards}
